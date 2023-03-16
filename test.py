@@ -8,6 +8,7 @@ xls_filename = "Standardized Input Datatape for Dzango v41.xlsx"
 # 3 - load the data
 
 
+import base64
 from fuzzywuzzy import fuzz
 import pandas as pd
 import unicodedata
@@ -79,39 +80,51 @@ for key, value in city_fuzzys.items():
 # Export the DataFrame to a CSV file
 city_fuzzy_df.to_csv('/content/city_fuzzys.csv', encoding='utf-8-sig', index=False)
 
+#make a script click to download the csv file
+def get_table_download_link(df):
+    """Generates a link allowing the data in a given panda dataframe to be downloaded
+    in:  dataframe
+    out: href string
+    """
+    csv = df.to_csv(index=False)
+    b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
+    href = f'<a href="data:file/csv;base64,{b64}">Download csv file</a>'
+    return href
+
+st.markdown(get_table_download_link(city_fuzzy_df), unsafe_allow_html=True)
 
 print(city_fuzzy_df.head(5))
 
 # 7 - After we have cleaned the city_fuzzys.csv, rename city_cleaned.csv and upload it. This will create the output data_updated_cities excel
 
-def get_indices(lst, value):
-    return [i for i, x in enumerate(lst) if x == value]
+# def get_indices(lst, value):
+#     return [i for i, x in enumerate(lst) if x == value]
 
-# Load the cleaned dataset (cities_cleaned are the ones post cleaning)
-city_clean_df = pd.read_csv('/content/city_cleaned.csv', encoding='utf-8-sig')
+# # Load the cleaned dataset (cities_cleaned are the ones post cleaning)
+# city_clean_df = pd.read_csv('/content/city_cleaned.csv', encoding='utf-8-sig')
 
-city_clean_city = list(city_clean_df['City'])
+# city_clean_city = list(city_clean_df['City'])
 
-# print(city_clean_city)
+# # print(city_clean_city)
 
-df_mod = df
-df_mod["City"]=df_mod["City"].str.strip()
+# df_mod = df
+# df_mod["City"]=df_mod["City"].str.strip()
 
-for i in range(len(df_mod["City"])):
-  if df_mod["City"][i] in city_clean_city:
-      ls = get_indices(city_clean_city, df_mod["City"][i])
-      for j in ls:
-        if city_clean_df["Same"].iloc[j] == 1:
-          df_mod.loc[i, "City"]  = city_clean_df["City"].loc[ (city_clean_df["Group"]==city_clean_df["Group"][j]) & (city_clean_df["Same"]==1) & (city_clean_df["Chosen"]==1)].iloc[0]
-          break
+# for i in range(len(df_mod["City"])):
+#   if df_mod["City"][i] in city_clean_city:
+#       ls = get_indices(city_clean_city, df_mod["City"][i])
+#       for j in ls:
+#         if city_clean_df["Same"].iloc[j] == 1:
+#           df_mod.loc[i, "City"]  = city_clean_df["City"].loc[ (city_clean_df["Group"]==city_clean_df["Group"][j]) & (city_clean_df["Same"]==1) & (city_clean_df["Chosen"]==1)].iloc[0]
+#           break
 
-# print(pd["City"])
-df_mod.to_excel('/content/data_updated_cities.xlsx', encoding='utf-8-sig', index=False)
+# # print(pd["City"])
+# df_mod.to_excel('/content/data_updated_cities.xlsx', encoding='utf-8-sig', index=False)
 
 
-# print(df["City"][15] )
-# df["City"][17] in city_clean_city
+# # print(df["City"][15] )
+# # df["City"][17] in city_clean_city
 
-city_values2 = df_mod['City'][~df_mod['City'].isna()]
-city_unique2 = sorted(list(set(city_values2)))
-len(city_unique)-len(city_unique2)
+# city_values2 = df_mod['City'][~df_mod['City'].isna()]
+# city_unique2 = sorted(list(set(city_values2)))
+# len(city_unique)-len(city_unique2)

@@ -1,6 +1,6 @@
+base64
+fuzzywuzzy
 openpyxl
 pandas
 streamlit
-fuzzywuzzy
 unicodedata
-base64

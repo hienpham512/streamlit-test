@@ -9,7 +9,7 @@ xls_filename = "Standardized Input Datatape for Dzango v41.xlsx"
 
 
 import base64
-from fuzzywuzzy import fuzz
+from rapidfuzz import fuzz
 import pandas as pd
 import unicodedata
 import streamlit as st
@@ -73,13 +73,17 @@ if uploaded_file is not None:
         # Add 0 for each value in the list
         for val in value:
           if val == key:
-            city_fuzzy_df = pd.concat([city_fuzzy_df,pd.DataFrame({'City': [val], 'Group': [list(city_fuzzy_keys).index(key) + 1], 'Same': [1], 'Chosen': [1]})], ignore_index=True)
+            city_fuzzy_df = pd.concat([city_fuzzy_df,pd.DataFrame({'City': [val], 'Group': [str(list(city_fuzzy_keys).index(key) + 1)], 'Same': [str(1)], 'Chosen': [str(1)]})], ignore_index=True)
           else:
-            city_fuzzy_df = pd.concat([city_fuzzy_df,pd.DataFrame({'City': [val], 'Group': [list(city_fuzzy_keys).index(key) + 1], 'Same': [0], 'Chosen': [0]})], ignore_index=True)
+            city_fuzzy_df = pd.concat([city_fuzzy_df,pd.DataFrame({'City': [val], 'Group': [str(list(city_fuzzy_keys).index(key) + 1)], 'Same': [str(0)], 'Chosen': [str(0)]})], ignore_index=True)
+        city_fuzzy_df = pd.concat([city_fuzzy_df,pd.DataFrame({'City': [''], 'Group': [''], 'Same': [''], 'Chosen': ['']})], ignore_index=True)
 
     # Export the DataFrame to a CSV file
     # city_fuzzy_df.to_csv('/content/city_fuzzys.csv', encoding='utf-8-sig', index=False)
+    
+    #make a script to edit the csv file and download it with the changes
 
+    st.experimental_data_editor(city_fuzzy_df, use_container_width=True, key=None, )
     #make a script click to download the csv file
     def get_table_download_link(df):
         """Generates a link allowing the data in a given panda dataframe to be downloaded
@@ -95,36 +99,56 @@ if uploaded_file is not None:
 
     print(city_fuzzy_df.head(5))
 
-    # 7 - After we have cleaned the city_fuzzys.csv, rename city_cleaned.csv and upload it. This will create the output data_updated_cities excel
+    if city_fuzzy_df is not None:
 
-    # def get_indices(lst, value):
-    #     return [i for i, x in enumerate(lst) if x == value]
+      uploaded_city_cleaned_file = st.file_uploader("Upload the cleaned city csv file")
 
-    # # Load the cleaned dataset (cities_cleaned are the ones post cleaning)
-    # city_clean_df = pd.read_csv('/content/city_cleaned.csv', encoding='utf-8-sig')
+      if uploaded_city_cleaned_file is not None:
 
-    # city_clean_city = list(city_clean_df['City'])
+        #7 - After we have cleaned the city_fuzzys.csv, rename city_cleaned.csv and upload it. This will create the output data_updated_cities excel
 
-    # # print(city_clean_city)
+        def get_indices(lst, value):
+            return [i for i, x in enumerate(lst) if x == value]
 
-    # df_mod = df
-    # df_mod["City"]=df_mod["City"].str.strip()
+        # Load the cleaned dataset (cities_cleaned are the ones post cleaning)
+        city_clean_df = pd.read_csv(uploaded_city_cleaned_file)
 
-    # for i in range(len(df_mod["City"])):
-    #   if df_mod["City"][i] in city_clean_city:
-    #       ls = get_indices(city_clean_city, df_mod["City"][i])
-    #       for j in ls:
-    #         if city_clean_df["Same"].iloc[j] == 1:
-    #           df_mod.loc[i, "City"]  = city_clean_df["City"].loc[ (city_clean_df["Group"]==city_clean_df["Group"][j]) & (city_clean_df["Same"]==1) & (city_clean_df["Chosen"]==1)].iloc[0]
-    #           break
+        city_clean_city = list(city_clean_df['City'])
 
-    # # print(pd["City"])
-    # df_mod.to_excel('/content/data_updated_cities.xlsx', encoding='utf-8-sig', index=False)
+        # print(city_clean_city)
+
+        df_mod = df
+        df_mod["City"]=df_mod["City"].str.strip()
+
+        for i in range(len(df_mod["City"])):
+          if df_mod["City"][i] in city_clean_city:
+              ls = get_indices(city_clean_city, df_mod["City"][i])
+              for j in ls:
+                if city_clean_df["Same"].iloc[j] == 1:
+                  df_mod.loc[i, "City"]  = city_clean_df["City"].loc[ (city_clean_df["Group"]==city_clean_df["Group"][j]) & (city_clean_df["Same"]==1) & (city_clean_df["Chosen"]==1)].iloc[0]
+                  break
+
+        # print(pd["City"])
+
+        def get_table_download_xlsx_link(df):
+          """Generates a link allowing the data in a given panda dataframe to be downloaded
+          in:  dataframe
+          out: href string
+          """
+          output_file_path = 'data.xlsx'
+          df.to_excel(output_file_path, index=False)
+          with open(output_file_path, 'rb') as f:
+              xlsx = f.read()
+          b64 = base64.b64encode(xlsx).decode()
+          href = f'<a href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{b64}" download="data.xlsx">Download xlsx file</a>'
+          return href
+
+        st.markdown(get_table_download_xlsx_link(df_mod), unsafe_allow_html=True)
 
 
-    # # print(df["City"][15] )
-    # # df["City"][17] in city_clean_city
+        # print(df["City"][15] )
+        # df["City"][17] in city_clean_city
 
-    # city_values2 = df_mod['City'][~df_mod['City'].isna()]
-    # city_unique2 = sorted(list(set(city_values2)))
-    # len(city_unique)-len(city_unique2)
+        city_values2 = df_mod['City'][~df_mod['City'].isna()]
+        city_unique2 = sorted(list(set(city_values2)))
+        len(city_unique)-len(city_unique2)

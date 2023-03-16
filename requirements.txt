@@ -1,5 +1,4 @@
 rapidfuzz
-unicodedata=2.0.0
 openpyxl
 pandas
 streamlit

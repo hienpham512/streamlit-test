@@ -1,0 +1,262 @@
+City,Group,Same,Chosen
+Acheres,1.0,1.0,1.0
+Buchères,1.0,0.0,0.0
+,,,
+Arnas,2.0,1.0,1.0
+Arras,2.0,0.0,0.0
+,,,
+Aubervilliers,3.0,1.0,1.0
+Survilliers,3.0,0.0,0.0
+,,,
+Bedford,4.0,1.0,1.0
+Bradford,4.0,0.0,0.0
+,,,
+Bicester,5.0,1.0,1.0
+Leicester,5.0,0.0,0.0
+,,,
+Binasco,6.0,1.0,1.0
+Buccinasco,6.0,0.0,0.0
+,,,
+Bourges,7.0,1.0,1.0
+Bourogne,7.0,0.0,0.0
+Dourges,7.0,0.0,0.0
+,,,
+Boves,8.0,1.0,1.0
+Noves,8.0,0.0,0.0
+,,,
+Brignoles,9.0,1.0,1.0
+Vignoles,9.0,0.0,0.0
+,,,
+Bruges,10.0,1.0,1.0
+Brugge,10.0,0.0,0.0
+,,,
+Buchères,11.0,1.0,1.0
+Fouchères,11.0,0.0,0.0
+,,,
+Cadriano,12.0,1.0,1.0
+Carpiano,12.0,0.0,0.0
+Landriano,12.0,0.0,0.0
+,,,
+Cagny,13.0,1.0,1.0
+Canly,13.0,0.0,0.0
+,,,
+Calenzano,14.0,1.0,1.0
+Calvenzano,14.0,0.0,0.0
+,,,
+Carpiano,15.0,1.0,1.0
+Copiano,15.0,0.0,0.0
+,,,
+Castel San Giovanni,16.0,1.0,1.0
+Sesto San Giovanni,16.0,0.0,0.0
+,,,
+Chapelle-D'Armentieres,17.0,1.0,1.0
+La Chapelle-D'Armentières,17.0,0.0,0.0
+,,,
+Chartres,18.0,1.0,1.0
+Chatres,18.0,0.0,0.0
+Châtres,18.0,0.0,0.0
+,,,
+Chatres,19.0,1.0,1.0
+Châtres,19.0,0.0,0.0
+,,,
+Chaussée-Saint-Victor,20.0,1.0,1.0
+La Chaussée-Saint-Victor,20.0,0.0,0.0
+,,,
+Coignieres,21.0,1.0,1.0
+Mignières,21.0,0.0,0.0
+,,,
+Colchester,22.0,1.0,1.0
+Rochester,22.0,0.0,0.0
+,,,
+Colombes,23.0,1.0,1.0
+Colomiers,23.0,0.0,0.0
+,,,
+Copiano,24.0,1.0,1.0
+Corciano,24.0,0.0,0.0
+,,,
+Corciano,25.0,1.0,1.0
+Cormano,25.0,0.0,0.0
+,,,
+Creteil,26.0,1.0,1.0
+Créteil,26.0,0.0,0.0
+,,,
+Croissy-Sur-Seine,27.0,1.0,1.0
+Rosny-Sur-Seine,27.0,0.0,0.0
+,,,
+Dartford,28.0,1.0,1.0
+Watford,28.0,0.0,0.0
+,,,
+Distriport,29.0,1.0,1.0
+Fos Distriport,29.0,0.0,0.0
+,,,
+Dlugoleka,30.0,1.0,1.0
+Długołęka,30.0,0.0,0.0
+,,,
+Elancourt,31.0,1.0,1.0
+Wancourt,31.0,0.0,0.0
+,,,
+Fiumicino Interporto C1L1,32.0,1.0,1.0
+Fiumicino Interporto C1L5,32.0,0.0,0.0
+,,,
+Gdansk,33.0,1.0,1.0
+Gdańsk,33.0,0.0,0.0
+,,,
+Gerona,34.0,1.0,1.0
+Girona,34.0,0.0,0.0
+Verona,34.0,0.0,0.0
+,,,
+Goole,35.0,1.0,1.0
+Poole,35.0,0.0,0.0
+,,,
+Grand Quevilly,36.0,1.0,1.0
+Le Grand Quevilly,36.0,0.0,0.0
+,,,
+Greater Amsterdam,37.0,1.0,1.0
+Greater Rotterdam,37.0,0.0,0.0
+,,,
+Ivry-Sur-Seine,38.0,1.0,1.0
+Vitry-Sur-Seine,38.0,0.0,0.0
+,,,
+Jonkoping,39.0,1.0,1.0
+Jönköping,39.0,0.0,0.0
+,,,
+Knowsley,40.0,1.0,1.0
+Knowsley Ind,40.0,0.0,0.0
+,,,
+Kungälv,41.0,1.0,1.0
+Kungälv Ii,41.0,0.0,0.0
+,,,
+Langenau I,42.0,1.0,1.0
+Langenau Ii,42.0,0.0,0.0
+,,,
+Le Petit-Quevilly,43.0,1.0,1.0
+Petit-Quevilly,43.0,0.0,0.0
+,,,
+Le Plessis Robinson,44.0,1.0,1.0
+Le Plessis-Robinson,44.0,0.0,0.0
+,,,
+Leeds,45.0,1.0,1.0
+Leers,45.0,0.0,0.0
+,,,
+Limeil-Brevannes,46.0,1.0,1.0
+Limeil-Brévannes,46.0,0.0,0.0
+,,,
+Limoges,47.0,1.0,1.0
+Limonest,47.0,0.0,0.0
+,,,
+Ludwigsfelde,48.0,1.0,1.0
+Ludwigsfelde Ii,48.0,0.0,0.0
+,,,
+Lérida,49.0,1.0,1.0
+Mérida,49.0,0.0,0.0
+,,,
+Macon,50.0,1.0,1.0
+Mâcon,50.0,0.0,0.0
+,,,
+Madone,51.0,1.0,1.0
+Maidstone,51.0,0.0,0.0
+,,,
+Mairano,52.0,1.0,1.0
+Marzano,52.0,0.0,0.0
+,,,
+Malpensa,53.0,1.0,1.0
+Wtc Malpensa,53.0,0.0,0.0
+,,,
+Marcianise - U10,54.0,1.0,1.0
+Marcianise - U13,54.0,0.0,0.0
+,,,
+Marden,55.0,1.0,1.0
+Marene,55.0,0.0,0.0
+,,,
+Midland,56.0,1.0,1.0
+Midlands,56.0,0.0,0.0
+Milan,56.0,0.0,0.0
+,,,
+Milan,57.0,1.0,1.0
+Milano,57.0,0.0,0.0
+,,,
+"Milton 
+Keynes",58.0,1.0,1.0
+Milton Keynes,58.0,0.0,0.0
+,,,
+Nantes,59.0,1.0,1.0
+Santes,59.0,0.0,0.0
+,,,
+Nogara,60.0,1.0,1.0
+Novara,60.0,0.0,0.0
+,,,
+Northampton,61.0,1.0,1.0
+Southampton,61.0,0.0,0.0
+,,,
+Nova Milanese,62.0,1.0,1.0
+Novate Milanese,62.0,0.0,0.0
+,,,
+Odense,63.0,1.0,1.0
+Orense,63.0,0.0,0.0
+,,,
+Piacenza,64.0,1.0,1.0
+Vicenza,64.0,0.0,0.0
+,,,
+Pognano,65.0,1.0,1.0
+Ponzano,65.0,0.0,0.0
+,,,
+Poole,66.0,1.0,1.0
+Poyle,66.0,0.0,0.0
+,,,
+Porto,67.0,1.0,1.0
+Prato,67.0,0.0,0.0
+,,,
+Poznan,68.0,1.0,1.0
+Poznań,68.0,0.0,0.0
+,,,
+Roma Settecamini,69.0,1.0,1.0
+Settecamini,69.0,0.0,0.0
+,,,
+Sailly-Lez-Cambrai,70.0,1.0,1.0
+Tilloy-Lez-Cambrai,70.0,0.0,0.0
+,,,
+Saint-Denis,71.0,1.0,1.0
+Vert-Saint-Denis,71.0,0.0,0.0
+,,,
+Saint-Malo,72.0,1.0,1.0
+Saint-Mard,72.0,0.0,0.0
+,,,
+Saint-Rambert D'Albon,73.0,1.0,1.0
+Saint-Rambert-D’Albon,73.0,0.0,0.0
+,,,
+Salford,74.0,1.0,1.0
+Stafford,74.0,0.0,0.0
+,,,
+San Giorgio Di Mantova,75.0,1.0,1.0
+San Giorgio Di Piano,75.0,0.0,0.0
+,,,
+Santa Cristina,76.0,1.0,1.0
+Santa Cristina I E,76.0,0.0,0.0
+,,,
+Santa Cristina I A+B+C+D,77.0,1.0,1.0
+Santa Cristina I E,77.0,0.0,0.0
+,,,
+Sevilla,78.0,1.0,1.0
+Seville,78.0,0.0,0.0
+,,,
+Szczcin,79.0,1.0,1.0
+Szczecin,79.0,0.0,0.0
+,,,
+Telford,80.0,1.0,1.0
+Thetford,80.0,0.0,0.0
+,,,
+Telgate,81.0,1.0,1.0
+Telgate Bg,81.0,0.0,0.0
+,,,
+Ternate Fabbr. 34,82.0,1.0,1.0
+Ternate Fabbr. 56,82.0,0.0,0.0
+,,,
+Valence,83.0,1.0,1.0
+Valencia,83.0,0.0,0.0
+,,,
+Vasteras,84.0,1.0,1.0
+Västerås,84.0,0.0,0.0
+,,,
+Verona,85.0,1.0,1.0
+Veronella,85.0,0.0,0.0
+,,,

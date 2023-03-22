@@ -2,3 +2,5 @@ rapidfuzz
 openpyxl
 pandas
 streamlit
+numpy
+xlsxwriter

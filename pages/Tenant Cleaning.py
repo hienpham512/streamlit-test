@@ -65,7 +65,7 @@ def update_xlsx(tenant_cleaned_df_param, df):
 
     st.write("# Step 4: Download the updated xlsx file")
 
-    def get_table_download_link_xlsx(df):
+    def get_table_download_link_xlsx(df_mod):
         """Generates a link allowing the data in a given pandas dataframe to be downloaded
         in:  dataframe
         out: href string
@@ -107,20 +107,21 @@ def tenantCleaning():
 
     st.experimental_data_editor(tenant_fuzzy_df, use_container_width=True, key=None, )
 
+    with open('tenant_fuzzy.csv', 'w') as f:
+        f.write(tenant_fuzzy_df.to_csv(index=False))
+
     st.download_button(
         label="Download tenant fuzzy as CSV",
-        data=convert_df(df, "csv"),
+        data=convert_df(tenant_fuzzy_df, "csv"),
         file_name='tenant_fuzzy.csv',
         mime='text/csv',
     )
-    with open('tenant_fuzzy.csv', 'w') as f:
-            f.write(tenant_fuzzy_df.to_csv(index=False))
 
 
 def convert_df(df, type):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     if type == 'csv':
-        return df.to_csv().encode('utf-8')
+        return df.to_csv().encode('utf-8-sig')
 
 if not os.path.isfile("original.xlsx"):
     st.warning("Please upload a file to get started.")

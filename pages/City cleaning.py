@@ -13,7 +13,7 @@ def get_indices(lst, value):
 def convert_df(df, type):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
     if type == 'csv':
-        return df.to_csv().encode('utf-8')
+        return df.to_csv().encode('utf-8-sig')
 
 def cityCleaning():
     filename = "original.xlsx"
@@ -34,7 +34,7 @@ def cityCleaning():
     # 5 - Normalize the strings to remove accents
     city_norm = []
     for i in range(len(city_unique)):
-      city_norm.append(unicodedata.normalize('NFKD', city_unique[i]).encode('ASCII', 'ignore').decode('utf8'))
+      city_norm.append(unicodedata.normalize('NFKD', city_unique[i]).encode('ASCII', 'ignore').decode('utf-8-sig'))
 
     #print(city_norm[0:5])
 
@@ -79,16 +79,16 @@ def cityCleaning():
     st.experimental_data_editor(city_fuzzy_df, use_container_width=True, key=None, )
     #make a script click to download the csv file
 
+
+    with open('city_fuzzy.csv', 'w') as f:
+        f.write(city_fuzzy_df.to_csv(index=False))
+
     st.download_button(
         label="Download fuzzy city as CSV",
-        data=convert_df(df, "csv"),
+        data=convert_df(city_fuzzy_df, "csv"),
         file_name='city_fuzzy.csv',
         mime='text/csv',
     )
-    with open('city_fuzzy.csv', 'w') as f:
-            f.write(city_fuzzy_df.to_csv(index=False))
-    print(city_fuzzy_df.head(5))  
-
 
 def update_xlsx(city_clean_df, df):
     city_clean_city = list(city_clean_df['City'])
@@ -110,7 +110,7 @@ def update_xlsx(city_clean_df, df):
     st.write("# Step 4: Download the updated xlsx file")
 
     #download the updated xlsx file
-    def get_table_download_link_xlsx(df):
+    def get_table_download_link_xlsx(df_mod):
         """Generates a link allowing the data in a given pandas dataframe to be downloaded
         in:  dataframe
         out: href string
